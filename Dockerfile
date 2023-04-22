@@ -2,10 +2,11 @@ FROM golang:latest
 
 WORKDIR /app
 
-COPY . /app
+COPY . .
 
-RUN go build -o main .
+RUN go mod download
+RUN go build -o app .
 
 EXPOSE 80
 
-CMD ["./main"]
+CMD ["./app"]
